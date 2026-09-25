@@ -1,0 +1,12 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["5JRTQN9J8C.com.mocmok.app"],
+        "components": [
+          { "/": "/join/*", "comment": "Game invite links: /join/<game>/<code> (frontend/utils/inviteLinks.js)" }
+        ]
+      }
+    ]
+  }
+}

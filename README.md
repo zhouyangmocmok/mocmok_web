@@ -67,3 +67,20 @@ api.mocmok.com   -> AWS / Elastic Beanstalk（如你这样配置）
 `node scripts/build-legal-pages.js`
 
 来生成网站法律页面，请把本版本中对 Terms / Privacy 等页面的相应文案同步回 `legal.json`，再让生成脚本保持一致。否则未来重新运行生成脚本时，可能会覆盖本目录中的修改。
+
+## 部署（2026-09-24 起）
+
+Vercel 项目 `mocmok/mocmok-web` 已连接本仓库的 `main` 分支：**推到 main 即自动发布到 mocmok.com**，不需要再跑 `vercel` 命令。
+
+## 游戏邀请链接（Universal Links）
+
+- `.well-known/apple-app-site-association`：声明 `5JRTQN9J8C.com.mocmok.app` 可以接管 `/join/*` 链接。必须 200 + `application/json`，不能跳转（`vercel.json` 已设置响应头）。
+- `join.html`：`/join/<game>/<code>` 的落地页（`vercel.json` 把 `/join/*` rewrite 到它），没装 App 的人点邀请链接会看到它。
+- 验证：`curl -sI https://www.mocmok.com/.well-known/apple-app-site-association` 应为 200 + `application/json`。
+
+## 法务文案与 App 保持一致
+
+隐私政策 / 服务协议 / 社区规范的正文以 App 内的 `frontend/i18n/locales/{zh,en}/legal.json`（mocmok 主仓库）为准，两边必须一致（App Store 5.1.1）。
+改 legal.json 后，把本仓库对应页面里 `<section class="card">` 下的 `<p>` 换成新正文（多段拆成多个 `<p>`，文本做 HTML 转义），
+并改页首的「最后更新 / Last updated」日期，中英两块都要改。
+

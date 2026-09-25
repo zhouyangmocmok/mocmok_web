@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>加入对局 · Join a game – MocMok</title>
+<meta name="description" content="MocMok — 加入对局 · Join a game – MocMok">
+<style>
+:root{--brand:#7B3FEF;--bg:#F8F9FD;--card:#FFFFFF;--text:#1F2937;--muted:#64748B;--line:#E5E7EB;--nav:#FFFFFFEE}
+@media (prefers-color-scheme:dark){:root{--bg:#0B0F19;--card:#111827;--text:#E5E7EB;--muted:#94A3B8;--line:#1F2937;--nav:#0B0F19EE}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+header{position:sticky;top:0;background:var(--nav);backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid var(--line);z-index:10}
+.bar{max-width:820px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.logo{font-weight:800;font-size:18px;color:var(--brand);letter-spacing:.2px}
+.logo span{display:inline-block;width:10px;height:10px;border-radius:3px;background:var(--brand);margin-right:8px;transform:rotate(45deg)}
+nav{display:flex;gap:14px;flex-wrap:wrap;font-size:14px}
+nav a{color:var(--muted)}
+nav a[aria-current]{color:var(--text);font-weight:700}
+.lang-toggle{margin-left:auto;display:none;gap:4px;border:1px solid var(--line);border-radius:999px;padding:2px}
+html[data-lang] .lang-toggle{display:inline-flex}
+@media (max-width:760px){nav{order:3;flex-basis:100%;margin-top:2px}}
+.lang-toggle button{border:0;background:transparent;color:var(--muted);font:inherit;font-size:13px;padding:4px 12px;border-radius:999px;cursor:pointer}
+.lang-toggle button[aria-pressed="true"]{background:var(--brand);color:#fff}
+main{max-width:820px;margin:0 auto;padding:32px 20px 64px}
+h1{font-size:30px;line-height:1.25;margin:0 0 6px}
+.updated{color:var(--muted);font-size:14px;margin:0 0 24px}
+.intro{font-size:17px;color:var(--muted);margin:0 0 24px}
+section.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 22px;margin:0 0 14px}
+section.card h2{font-size:17px;margin:0 0 8px}
+section.card p{margin:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:24px 0}
+.grid a{display:block;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px;color:var(--text)}
+.grid a:hover{border-color:var(--brand);text-decoration:none}
+.grid a strong{display:block;color:var(--brand);margin-bottom:4px}
+.grid a small{color:var(--muted)}
+footer{max-width:820px;margin:0 auto;padding:0 20px 40px;color:var(--muted);font-size:13px;border-top:1px solid var(--line);padding-top:20px}
+footer .links{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:8px}
+html[data-lang="zh"] [data-lang="en"],html[data-lang="en"] [data-lang="zh"]{display:none}
+
+.join-card{text-align:center;padding:28px 22px}
+.join-code-label{color:var(--muted);font-size:13px;letter-spacing:2px;text-transform:uppercase}
+.join-code{font-size:44px;font-weight:800;letter-spacing:10px;margin:8px 0 22px;color:var(--brand);font-variant-numeric:tabular-nums;word-break:break-all}
+.join-btn{display:block;margin:0 auto 10px;max-width:320px;padding:14px 20px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--text);font-weight:700;font-size:16px}
+.join-btn:hover{text-decoration:none;border-color:var(--brand)}
+.join-btn-primary{background:var(--brand);border-color:var(--brand);color:#fff}
+.join-hint{color:var(--muted);font-size:14px;margin:18px 0 0}
+.wechat-mask{position:fixed;inset:0;background:rgba(5,5,12,.96);z-index:99;padding:28px;text-align:right;color:#fff}
+.wechat-mask[hidden]{display:none}
+.wechat-arrow{font-size:52px;line-height:1;animation:join-bounce 1s infinite alternate}
+.wechat-tip{margin-top:18px;text-align:center;font-size:18px;line-height:1.8}
+@keyframes join-bounce{from{transform:translateY(0)}to{transform:translateY(-12px)}}
+</style>
+<script>document.write('<meta name="apple-itunes-app" content="app-id=6810537134, app-argument=' + location.href.replace(/[<>"']/g, '') + '">');</script>
+</head>
+<body>
+<header>
+  <div class="bar">
+    <a class="logo" href="./"><span></span>MocMok</a>
+    <nav data-lang="zh"><a href="./">首页</a><a href="terms.html">服务协议</a><a href="privacy.html">隐私政策</a><a href="guidelines.html">社区规范</a><a href="support.html">帮助与支持</a></nav>
+    <nav data-lang="en"><a href="./">Home</a><a href="terms.html">Terms of Service</a><a href="privacy.html">Privacy Policy</a><a href="guidelines.html">Community Guidelines</a><a href="support.html">Help &amp; Support</a></nav>
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button type="button" data-set-lang="zh">中文</button>
+      <button type="button" data-set-lang="en">English</button>
+    </div>
+  </div>
+</header>
+<main>
+  <div data-lang="zh">
+    <h1>邀请你加入对局</h1>
+    <p class="intro" data-join-valid>你的朋友邀请你在 MocMok 里一起玩「<span data-join-game></span>」。</p>
+    <section class="card join-card" data-join-valid>
+      <div class="join-code-label">房间号</div>
+      <div class="join-code" data-join-code>—</div>
+      <a class="join-btn join-btn-primary" data-join-open href="#">在 MocMok 中打开</a>
+      <a class="join-btn" href="https://apps.apple.com/app/id6810537134">从 App Store 下载</a>
+      <p class="join-hint">没装 App？下载安装后，在游戏里输入上面的房间号就能加入。房间只在好友等待期间有效。</p>
+    </section>
+    <section class="card" data-join-invalid hidden>
+      <p>这个邀请链接不完整或已失效，请让朋友重新分享一次。</p>
+    </section>
+    <div class="wechat-mask" data-wechat-mask hidden>
+      <div class="wechat-arrow">↗️</div>
+      <div class="wechat-tip">点击右上角 <b>⋯</b> 菜单<br>选择 <b>「在浏览器中打开」</b><br>即可唤起 App 进入房间</div>
+    </div>
+  </div>
+  <div data-lang="en">
+    <h1>You&#39;re invited to a game</h1>
+    <p class="intro" data-join-valid>A friend invited you to play <span data-join-game></span> on MocMok.</p>
+    <section class="card join-card" data-join-valid>
+      <div class="join-code-label">Room code</div>
+      <div class="join-code" data-join-code>—</div>
+      <a class="join-btn join-btn-primary" data-join-open href="#">Open in MocMok</a>
+      <a class="join-btn" href="https://apps.apple.com/app/id6810537134">Get it on the App Store</a>
+      <p class="join-hint">Don&#39;t have the app? Install it, then enter the room code above in the game. The room stays open only while your friend is waiting.</p>
+    </section>
+    <section class="card" data-join-invalid hidden>
+      <p>This invite link is incomplete or has expired. Ask your friend to share it again.</p>
+    </section>
+    <div class="wechat-mask" data-wechat-mask hidden>
+      <div class="wechat-arrow">↗️</div>
+      <div class="wechat-tip">Tap the <b>⋯</b> menu in the top-right corner<br>and choose <b>"Open in Browser"</b><br>to jump into the game</div>
+    </div>
+  </div>
+</main>
+<footer>
+  <div class="links" data-lang="zh"><a href="./">首页</a><a href="terms.html">服务协议</a><a href="privacy.html">隐私政策</a><a href="guidelines.html">社区规范</a><a href="support.html">帮助与支持</a></div>
+  <div class="links" data-lang="en"><a href="./">Home</a><a href="terms.html">Terms of Service</a><a href="privacy.html">Privacy Policy</a><a href="guidelines.html">Community Guidelines</a><a href="support.html">Help &amp; Support</a></div>
+  <div data-lang="zh">© 2026 MocMok. 保留所有权利。 · <a href="mailto:support@mocmok.com">support@mocmok.com</a></div>
+  <div data-lang="en">© 2026 MocMok. All rights reserved. · <a href="mailto:support@mocmok.com">support@mocmok.com</a></div>
+</footer>
+<script>
+(function(){
+  var KEY='mocmok-lang', lang=null;
+  try{lang=localStorage.getItem(KEY)}catch(e){}
+  if(lang!=='zh'&&lang!=='en'){lang=((navigator.language||'').toLowerCase().indexOf('zh')===0)?'zh':'en'}
+  function apply(l){
+    document.documentElement.setAttribute('data-lang',l);
+    document.documentElement.lang=(l==='zh')?'zh-CN':'en';
+    var bs=document.querySelectorAll('[data-set-lang]');
+    for(var i=0;i<bs.length;i++){bs[i].setAttribute('aria-pressed',bs[i].getAttribute('data-set-lang')===l?'true':'false')}
+    try{localStorage.setItem(KEY,l)}catch(e){}
+  }
+  apply(lang);
+  var bs=document.querySelectorAll('[data-set-lang]');
+  for(var i=0;i<bs.length;i++){bs[i].addEventListener('click',function(){apply(this.getAttribute('data-set-lang'))})}
+})();
+
+(function(){
+  var names={"zh":{"draw":"你画我猜","quiz":"知识竞赛","mindmatch":"心有灵犀","vibecheck":"默契狂飙","roastle":"热梗猜词"},"en":{"draw":"Draw & Guess","quiz":"Quiz Battle","mindmatch":"Mind Match","vibecheck":"VibeCheck: Overdrive","roastle":"Roastle"}};
+  var m=/^\/join\/([a-z]+)\/([^\/]+)\/?$/i.exec(location.pathname);
+  var game=m?m[1].toLowerCase():null, code=null;
+  if(m){try{code=decodeURIComponent(m[2]).trim()}catch(e){code=null}}
+  var ok=!!(game&&names.en[game]&&code&&/^[A-Za-z0-9_-]{1,32}$/.test(code));
+  function all(sel){return Array.prototype.slice.call(document.querySelectorAll(sel))}
+  all('[data-join-valid]').forEach(function(el){el.hidden=!ok});
+  all('[data-join-invalid]').forEach(function(el){el.hidden=ok});
+  if(!ok)return;
+  all('[data-join-game]').forEach(function(el){var lang=el.closest('[data-lang]').getAttribute('data-lang');el.textContent=names[lang][game]||game});
+  all('[data-join-code]').forEach(function(el){el.textContent=code});
+  document.title=(names.zh[game]||game)+' '+code+' · '+(names.en[game]||game)+' – MocMok';
+  var deep='com.mocmok.app://join/'+game+'/'+encodeURIComponent(code);
+  all('[data-join-open]').forEach(function(a){
+    a.href=deep;
+    // 没装 App 时自定义 scheme 打不开、页面还留在前台：1.5s 后转去 App Store
+    a.addEventListener('click',function(){
+      var t=setTimeout(function(){if(!document.hidden)location.href='https://apps.apple.com/app/id6810537134'},1500);
+      document.addEventListener('visibilitychange',function(){if(document.hidden)clearTimeout(t)},{once:true});
+    });
+  });
+  if(/MicroMessenger/i.test(navigator.userAgent||'')){all('[data-wechat-mask]').forEach(function(el){el.hidden=false})}
+})();
+</script>
+</body>
+</html>
