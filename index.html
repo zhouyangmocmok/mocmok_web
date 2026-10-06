@@ -3,120 +3,244 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#6E44FF">
+<meta name="theme-color" content="#1B1434">
+<meta name="color-scheme" content="light">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="assets/logo-192.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<title>MocMok — AI-native social discovery</title>
-<meta name="description" content="MocMok is an AI-native social discovery platform for adults 18+, combining Agent Match, real-time interaction and social games to help people connect more naturally.">
+<title>MocMok — Meet People Through Play. Find People with AI.</title>
+<meta name="description" content="MocMok is a social app with two ways to meet people: live social games that help strangers connect naturally, and Mr.Moc, an AI agent that turns a plain-language request into one clear match. Free on iOS, 18+.">
+<meta property="og:title" content="MocMok — Meet People Through Play. Find People with AI.">
+<meta property="og:description" content="Live social games and an AI agent that finds the kind of person you want to meet. Free on iOS, 18+.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mocmok.com/">
+<meta property="og:image" content="https://mocmok.com/assets/logo-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
 <style>
 :root{
-  --brand:#6E44FF;--brand-2:#9B7BFF;--accent:#FFD84D;--ink:#141321;--muted:#6F7180;
-  --bg:#FBFAFF;--card:#FFFFFF;--soft:#F3F0FF;--line:#E9E5F3;--nav:rgba(251,250,255,.86);
-  --shadow:0 18px 60px rgba(53,35,112,.12);--radius:28px;
-}
-@media (prefers-color-scheme:dark){
-  :root{--ink:#F4F1FF;--muted:#AAA7BB;--bg:#0D0B14;--card:#151220;--soft:#1B1630;--line:#2A2438;--nav:rgba(13,11,20,.88);--shadow:0 18px 60px rgba(0,0,0,.3)}
+  --ink:#1B1434;--navy:#1B1434;--navy-2:#231A45;--navy-3:#2E2458;
+  --purple:#7B3FEF;--purple-2:#8F5CFF;--purple-soft:#B9A3FF;--purple-tint:#EFE9FF;
+  --yellow:#F7C948;--yellow-deep:#E8B326;--yellow-ink:#2A1F00;
+  --bg:#F6F3FD;--card:#FFFFFF;--muted:#5E5A74;--line:#E6E1F5;
+  --dark-muted:#CCC6E8;--dark-line:rgba(255,255,255,.12);--dark-card:rgba(255,255,255,.06);
+  --shadow:0 24px 70px rgba(27,20,52,.14);--radius:28px;
+  --display:"Fredoka","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  --body:"DM Sans",-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;overflow-x:hidden}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--body);overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 button{font:inherit}
-header{position:sticky;top:0;z-index:50;background:var(--nav);backdrop-filter:blur(18px) saturate(150%);border-bottom:1px solid color-mix(in srgb,var(--line) 75%,transparent)}
-.bar{max-width:1180px;margin:0 auto;padding:15px 24px;display:flex;align-items:center;gap:26px}
-.logo{display:flex;align-items:center;gap:10px;font-weight:850;font-size:20px;letter-spacing:-.4px}
-.logo-mark{display:block;width:30px;height:30px;border-radius:9px;box-shadow:0 8px 22px rgba(110,68,255,.28)}
-nav{display:flex;align-items:center;gap:24px;margin-left:auto}
-nav a{font-size:14px;color:var(--muted);font-weight:600}
-nav a:hover{color:var(--ink)}
-.header-cta{padding:9px 15px;border-radius:999px;background:var(--ink);color:var(--bg);font-size:13px;font-weight:750}
+img{max-width:100%}
+h1,h2,h3,.display{font-family:var(--display);font-weight:700;letter-spacing:-.01em;margin:0;text-wrap:balance}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.kicker{font-family:var(--body);font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--purple);margin:0 0 16px}
+.dark .kicker{color:var(--yellow)}
+h2{font-size:clamp(34px,4.6vw,56px);line-height:1.06;max-width:900px}
+.lead{font-size:clamp(17px,1.5vw,20px);line-height:1.55;color:var(--muted);max-width:760px;margin:20px 0 0}
+.dark{background:var(--navy);color:#fff}
+.dark .lead{color:var(--dark-muted)}
+.section{padding:104px 0}
+.pill{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:999px;padding:14px 24px;font-weight:700;font-size:15px;transition:transform .2s,box-shadow .2s,background .2s;white-space:nowrap}
+.pill:hover{transform:translateY(-1px)}
+.pill-yellow{background:var(--yellow);color:var(--yellow-ink);box-shadow:0 14px 34px rgba(247,201,72,.28)}
+.pill-purple{background:var(--purple);color:#fff;box-shadow:0 14px 34px rgba(123,63,239,.32)}
+.pill-ghost{border:1.5px solid rgba(255,255,255,.26);color:#fff;background:transparent}
+.pill-ghost:hover{background:rgba(255,255,255,.08)}
+.pill-light{border:1.5px solid var(--line);color:var(--ink);background:var(--card)}
+.store{display:inline-flex;align-items:center;gap:11px;background:#000;color:#fff;border-radius:16px;padding:10px 18px 10px 14px;line-height:1.1;transition:transform .2s}
+.store:hover{transform:translateY(-1px)}
+.store svg{width:26px;height:26px;flex:none}
+.store small{display:block;font-size:11px;font-weight:500;opacity:.85;letter-spacing:.02em}
+.store b{display:block;font-size:19px;font-weight:600;letter-spacing:-.01em;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",var(--body)}
+
+/* header */
+header{position:sticky;top:0;z-index:50;background:rgba(27,20,52,.78);backdrop-filter:blur(18px) saturate(140%);border-bottom:1px solid var(--dark-line);color:#fff}
+.bar{max-width:1180px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:28px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;font-size:22px}
+.logo-mark{display:block;width:32px;height:32px;border-radius:10px}
+nav{display:flex;align-items:center;gap:26px;margin-left:auto}
+nav a{font-size:14px;font-weight:600;color:var(--dark-muted)}
+nav a:hover{color:#fff}
+.header-cta{padding:10px 16px;font-size:13px}
 .lang-menu{position:relative}
-.lang-trigger{display:flex;align-items:center;gap:7px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:8px 11px;cursor:pointer;box-shadow:0 5px 18px rgba(30,20,70,.05)}
+.lang-trigger{display:flex;align-items:center;gap:7px;border:1px solid var(--dark-line);background:rgba(255,255,255,.06);color:#fff;border-radius:999px;padding:8px 11px;cursor:pointer}
 .lang-trigger svg{width:17px;height:17px}
-.lang-label{font-size:12px;font-weight:750;min-width:22px;text-align:center}
-.lang-chevron{font-size:10px;color:var(--muted);transition:.2s transform}
+.lang-label{font-size:12px;font-weight:700;min-width:22px;text-align:center}
+.lang-chevron{font-size:10px;opacity:.7;transition:.2s transform}
 .lang-menu.open .lang-chevron{transform:rotate(180deg)}
-.lang-popover{position:absolute;right:0;top:calc(100% + 9px);width:156px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:7px;box-shadow:var(--shadow);display:none}
+.lang-popover{position:absolute;right:0;top:calc(100% + 9px);width:156px;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:16px;padding:7px;box-shadow:var(--shadow);display:none}
 .lang-menu.open .lang-popover{display:block}
 .lang-option{width:100%;border:0;background:transparent;color:var(--ink);padding:10px 11px;border-radius:11px;display:flex;justify-content:space-between;cursor:pointer;text-align:left;font-size:14px}
-.lang-option:hover{background:var(--soft)}
-.lang-option[aria-pressed="true"]{background:var(--soft);color:var(--brand);font-weight:750}
-.mobile-menu{display:none}
-main{overflow:hidden}
-.hero{max-width:1180px;margin:0 auto;padding:96px 24px 78px;display:grid;grid-template-columns:minmax(0,1.02fr) minmax(400px,.98fr);gap:70px;align-items:center;position:relative}
-.hero:before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(110,68,255,.17),rgba(110,68,255,0) 68%);left:-230px;top:-170px;pointer-events:none}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:7px 11px;border:1px solid rgba(110,68,255,.18);background:rgba(110,68,255,.07);border-radius:999px;color:var(--brand);font-size:12px;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
-.eyebrow-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(255,216,77,.16)}
-h1{font-size:clamp(52px,6.8vw,90px);line-height:1.02;letter-spacing:-.035em;margin:24px 0 24px;max-width:780px;overflow-wrap:break-word}
-h1 .gradient{display:inline-block;padding:.08em .14em .22em 0;margin:-.08em -.14em -.22em 0;background:linear-gradient(110deg,var(--brand),#9A73FF 58%,#B783FF);-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero-copy{font-size:19px;line-height:1.65;color:var(--muted);max-width:650px;margin:0}
-.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:14px;padding:13px 18px;font-weight:760;font-size:14px;transition:.2s transform,.2s box-shadow}
-.btn:hover{transform:translateY(-1px)}
-.btn-primary{background:var(--brand);color:white;box-shadow:0 12px 28px rgba(110,68,255,.28)}
-.btn-secondary{border:1px solid var(--line);background:var(--card);color:var(--ink)}
-.hero-note{font-size:12px;color:var(--muted);margin-top:16px}
-.agent-stage{position:relative;min-height:520px;display:flex;align-items:center;justify-content:center}
-.orb{position:absolute;border-radius:50%;filter:blur(.2px)}
-.orb.one{width:360px;height:360px;background:linear-gradient(145deg,rgba(110,68,255,.18),rgba(255,216,77,.09));top:5%;right:-5%}
-.orb.two{width:160px;height:160px;background:rgba(255,216,77,.18);left:0;bottom:4%}
-.shots{position:relative;width:min(580px,100%);display:grid;grid-template-columns:minmax(0,31fr) minmax(0,36fr) minmax(0,31fr);gap:12px;align-items:center;padding:28px 0}
-.shot{position:relative;margin:0;aspect-ratio:1/1.9;border-radius:22px;border:1px solid rgba(110,68,255,.18);background:var(--card);box-shadow:0 22px 60px rgba(57,37,117,.18);overflow:hidden;transition:.35s transform}
-.shot img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
-.shot.main{z-index:3;aspect-ratio:1/1.84;border-radius:26px;box-shadow:0 30px 80px rgba(57,37,117,.24);transform:translateY(-16px)}
-.shot.left{transform:rotate(-3deg) translateY(12px)}
-.shot.right{transform:rotate(3deg) translateY(12px)}
-.shots:hover .shot.left{transform:rotate(-4deg) translate(-4px,12px)}
-.shots:hover .shot.right{transform:rotate(4deg) translate(4px,12px)}
-.section{padding:94px 24px}
-.section-inner{max-width:1180px;margin:0 auto}
-.section-kicker{font-size:12px;text-transform:uppercase;letter-spacing:.11em;color:var(--brand);font-weight:850;margin-bottom:14px}
-.section h2{font-size:clamp(36px,5vw,64px);line-height:1.04;letter-spacing:-.045em;margin:0;max-width:780px}
-.section-lead{color:var(--muted);font-size:18px;max-width:690px;margin:22px 0 0}
-.agent-section{background:linear-gradient(180deg,transparent,rgba(110,68,255,.045),transparent)}
-.feature-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:28px;margin-top:46px}
-.feature-panel{border:1px solid var(--line);border-radius:var(--radius);background:var(--card);padding:28px;box-shadow:0 16px 50px rgba(32,24,80,.07)}
-.prompt-box{background:var(--ink);color:var(--bg);border-radius:22px;padding:24px;min-height:260px;display:flex;flex-direction:column;justify-content:space-between}
-.prompt-label{font-size:12px;opacity:.66;text-transform:uppercase;letter-spacing:.08em}
-.prompt-text{font-size:clamp(24px,3vw,38px);line-height:1.15;letter-spacing:-.03em;margin:22px 0}
-.prompt-chips{display:flex;gap:8px;flex-wrap:wrap}.prompt-chip{font-size:11px;border:1px solid rgba(255,255,255,.16);padding:6px 9px;border-radius:999px;opacity:.85}
-.steps{display:grid;gap:10px}
-.step{padding:17px;border:1px solid var(--line);border-radius:18px;display:grid;grid-template-columns:auto 1fr;gap:13px;align-items:start}
-.step-num{width:29px;height:29px;border-radius:9px;display:grid;place-items:center;background:var(--soft);color:var(--brand);font-weight:850;font-size:12px}
-.step strong{font-size:14px;display:block;margin:1px 0 3px}.step p{margin:0;color:var(--muted);font-size:13px}
-.games-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:44px}
-.game-card{min-height:255px;border-radius:25px;padding:20px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;border:1px solid var(--line);background:var(--card)}
-.game-card:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 10%,rgba(110,68,255,.28),transparent 44%)}
-.game-card:nth-child(2):before{background:radial-gradient(circle at 75% 15%,rgba(255,216,77,.32),transparent 42%)}
-.game-card:nth-child(3):before{background:radial-gradient(circle at 75% 15%,rgba(174,115,255,.28),transparent 42%)}
-.game-card:nth-child(4):before{background:radial-gradient(circle at 75% 15%,rgba(255,154,200,.26),transparent 42%)}
-.game-icon{position:absolute;top:22px;right:20px;width:92px;height:92px;border-radius:28px;background:linear-gradient(145deg,var(--brand),#9D7BFF);box-shadow:0 14px 34px rgba(110,68,255,.28);display:grid;place-items:center;color:#fff;font-size:30px;font-weight:900;transform:rotate(7deg)}
-.game-card:nth-child(2) .game-icon{background:linear-gradient(145deg,#E8B915,#FFD84D);color:#342800}
-.game-card:nth-child(3) .game-icon{background:linear-gradient(145deg,#7552F2,#C0A4FF)}
-.game-card:nth-child(4) .game-icon{background:linear-gradient(145deg,#A85EEF,#FF92C8)}
-.game-card h3,.game-card p{position:relative;margin:0}.game-card h3{font-size:19px;margin-bottom:5px}.game-card p{color:var(--muted);font-size:13px}
-.human-panel{margin-top:44px;border-radius:32px;padding:56px;background:linear-gradient(135deg,#241747,#5D35C8 72%,#7756DD);color:#fff;display:grid;grid-template-columns:1fr .78fr;gap:46px;align-items:center;position:relative;overflow:hidden}
-.human-panel:after{content:"";position:absolute;width:300px;height:300px;border-radius:50%;background:rgba(255,216,77,.14);right:-90px;top:-100px}
-.human-panel h3{font-size:clamp(34px,4vw,58px);line-height:1.02;letter-spacing:-.04em;margin:0 0 18px}.human-panel p{font-size:17px;opacity:.78;max-width:650px;margin:0}
-.human-points{display:grid;gap:12px;position:relative;z-index:1}.human-point{border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.07);border-radius:17px;padding:14px 16px;font-size:13px}.human-point strong{display:block;margin-bottom:2px}
-.safety-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:38px}.safety-card{border:1px solid var(--line);background:var(--card);border-radius:22px;padding:22px}.safety-card b{display:block;font-size:15px;margin-bottom:7px}.safety-card p{margin:0;color:var(--muted);font-size:13px}
-.about-strip{margin-top:34px;padding:22px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:28px;color:var(--muted);font-size:14px}.about-strip strong{color:var(--ink)}
-footer{border-top:1px solid var(--line);padding:48px 24px 36px}.footer-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:40px}.footer-brand p{color:var(--muted);font-size:13px;max-width:330px}.footer-col h4{font-size:12px;text-transform:uppercase;letter-spacing:.08em;margin:0 0 12px}.footer-col a{display:block;color:var(--muted);font-size:13px;margin:8px 0}.footer-col a:hover{color:var(--ink)}.footer-bottom{max-width:1180px;margin:34px auto 0;padding-top:20px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;color:var(--muted);font-size:12px}
+.lang-option:hover{background:var(--purple-tint)}
+.lang-option[aria-pressed="true"]{background:var(--purple-tint);color:var(--purple);font-weight:700}
+
+/* hero */
+.hero{position:relative;overflow:hidden;padding:72px 0 96px}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center;position:relative;z-index:1}
+.blob{position:absolute;border-radius:50%;pointer-events:none}
+.blob.a{width:300px;height:300px;background:var(--purple);right:-90px;top:-120px}
+.blob.b{width:220px;height:220px;background:var(--yellow);right:-40px;bottom:-60px}
+.blob.c{width:180px;height:180px;background:var(--purple);left:44%;bottom:-110px;opacity:.9}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid var(--dark-line);color:var(--dark-muted);font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.eyebrow-dot{width:8px;height:8px;border-radius:50%;background:var(--yellow);box-shadow:0 0 0 4px rgba(247,201,72,.2)}
+h1{font-size:clamp(44px,5.6vw,76px);line-height:1.02;margin:26px 0 22px}
+h1 .y{color:var(--yellow)}
+.hero-copy{font-size:clamp(17px,1.5vw,20px);line-height:1.55;color:var(--dark-muted);max-width:560px;margin:0}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:32px}
+.hero-note{font-size:13px;color:var(--dark-muted);opacity:.85;margin-top:18px}
+.two-ways{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:34px}
+.two-ways .pill{padding:11px 20px;font-size:13px;letter-spacing:.06em;text-transform:uppercase;cursor:default}
+.two-ways .and{font-family:var(--display);font-weight:700;font-size:15px;color:var(--dark-muted)}
+.stage{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:end;justify-items:center;padding-top:10px}
+.stage figure{margin:0;position:relative;width:100%;max-width:300px}
+.stage figure img{display:block;width:100%;height:auto;filter:drop-shadow(0 34px 60px rgba(0,0,0,.45))}
+.stage figure:first-child{transform:translateY(-18px)}
+.stage figcaption{margin-top:18px;text-align:center}
+.stage figcaption span{display:inline-block;background:var(--navy-3);border:1px solid var(--dark-line);color:#fff;border-radius:999px;padding:10px 18px;font-size:14px;font-weight:700}
+.stage .and-badge{position:absolute;left:50%;top:38%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:var(--yellow);color:var(--yellow-ink);display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:15px;box-shadow:0 12px 30px rgba(0,0,0,.35);z-index:2}
+
+/* numbered list */
+.numbered{display:grid;gap:0;margin-top:44px;max-width:900px}
+.numbered .item{display:grid;grid-template-columns:72px 1fr;gap:12px;padding:26px 0;border-top:1px solid var(--line)}
+.numbered .item:first-child{border-top:0;padding-top:0}
+.numbered .n{font-family:var(--display);font-weight:700;font-size:28px;color:var(--purple);line-height:1.1}
+.numbered h3{font-size:24px;margin-bottom:6px}
+.numbered p{margin:0;color:var(--muted);font-size:17px}
+.closing{font-family:var(--display);font-weight:600;font-size:clamp(20px,2vw,26px);color:var(--purple);margin:40px 0 0}
+
+/* agent section */
+.agent{background:linear-gradient(180deg,var(--bg),var(--purple-tint) 60%,var(--bg))}
+.agent-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:56px;align-items:center;margin-top:52px}
+.quote-card{background:var(--card);border-radius:var(--radius);padding:30px 32px;box-shadow:var(--shadow);border:1px solid var(--line)}
+.quote-card .kicker{margin-bottom:12px;font-size:12px}
+.quote-card blockquote{margin:0;font-family:var(--display);font-weight:600;font-size:clamp(22px,2.2vw,30px);line-height:1.25}
+.steps{display:grid;gap:14px;margin-top:22px}
+.step{display:grid;grid-template-columns:48px 1fr;gap:14px;align-items:start;padding:18px 20px;background:var(--card);border:1px solid var(--line);border-radius:20px}
+.step .n{font-family:var(--display);font-weight:700;font-size:22px;color:var(--purple)}
+.step b{display:block;font-size:17px;margin-bottom:3px}
+.step p{margin:0;color:var(--muted);font-size:15px}
+.phone{position:relative;width:min(320px,100%);margin:0 auto;border-radius:46px;background:#0b0813;padding:11px;box-shadow:0 40px 90px rgba(27,20,52,.35),inset 0 0 0 2px #3a3450}
+.phone:before{content:"";position:absolute;top:22px;left:50%;transform:translateX(-50%);width:34%;height:30px;background:#0b0813;border-radius:20px;z-index:2}
+.phone img{display:block;width:100%;height:auto;border-radius:36px}
+.phone.sm{width:min(260px,100%)}
+.status-tag{position:absolute;left:50%;bottom:-18px;transform:translateX(-50%);background:var(--purple);color:#fff;border-radius:999px;padding:9px 16px;font-size:13px;font-weight:700;white-space:nowrap;box-shadow:0 12px 30px rgba(123,63,239,.35)}
+.live-line{margin-top:26px;font-family:var(--display);font-weight:600;color:var(--purple);font-size:18px}
+
+/* games */
+.games-meta{display:grid;grid-template-columns:auto minmax(0,1fr);gap:40px;align-items:center;margin-top:40px}
+.stat-row{display:flex;gap:36px;flex-wrap:wrap;align-items:flex-end}
+.stat .num{font-family:var(--display);font-weight:700;font-size:clamp(56px,6vw,84px);line-height:.95;color:var(--yellow)}
+.stat .lbl{font-weight:700;font-size:15px;color:var(--dark-muted);margin-top:8px}
+.stat-split{display:flex;gap:18px;flex-wrap:wrap}
+.stat-split div{font-family:var(--display);font-weight:600;font-size:22px}
+.stat-split div span{display:block;font-family:var(--body);font-weight:600;font-size:13px;color:var(--dark-muted);margin-top:2px}
+.signal{padding:22px 24px;border-radius:22px;background:var(--dark-card);border:1px solid var(--dark-line);max-width:560px}
+.signal b{display:block;color:var(--yellow);font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
+.signal p{margin:0;color:var(--dark-muted);font-size:16px}
+.loop-tags{display:flex;gap:10px;flex-wrap:wrap;margin-top:34px}
+.loop-tags span{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--dark-muted);border:1px solid var(--dark-line);border-radius:999px;padding:8px 13px}
+.carousel{position:relative;margin-top:52px}
+.chead{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:6px}
+.chead p{margin:0;color:var(--dark-muted);font-size:14px;font-weight:600}
+.cbtns{display:flex;gap:10px}
+.cbtn{width:44px;height:44px;border-radius:50%;border:1px solid var(--dark-line);background:var(--dark-card);color:#fff;display:grid;place-items:center;cursor:pointer;transition:background .2s}
+.cbtn:hover{background:rgba(255,255,255,.14)}
+.cbtn svg{width:18px;height:18px}
+.track{display:grid;grid-auto-flow:column;grid-auto-columns:min(262px,74vw);gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;padding:14px 4px 30px;scrollbar-width:none;-webkit-overflow-scrolling:touch;scroll-behavior:smooth}
+.track::-webkit-scrollbar{display:none}
+.gitem{scroll-snap-align:start;display:flex;flex-direction:column}
+.gitem .phone{width:100%;margin:0;border-radius:40px;padding:9px;box-shadow:0 26px 60px rgba(0,0,0,.45),inset 0 0 0 2px #3a3450}
+.gitem .phone img{border-radius:32px}
+.gitem .phone:before{top:16px;height:24px;width:32%}
+.gcap{margin-top:20px;padding:0 4px}
+.gcap .tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--dark-muted);border:1px solid var(--dark-line);border-radius:999px;padding:5px 10px}
+.gitem.y .gcap .tag{color:var(--yellow);border-color:rgba(247,201,72,.45)}
+.gitem.p .gcap .tag{color:var(--purple-soft);border-color:rgba(185,163,255,.45)}
+.gcap h3{font-size:22px;margin:12px 0 6px}
+.gcap p{margin:0;color:var(--dark-muted);font-size:14px;line-height:1.5}
+
+/* loop */
+.loop-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:52px;position:relative}
+.loop-grid:before{content:"";position:absolute;left:6%;right:6%;top:40px;height:3px;background:linear-gradient(90deg,var(--purple),var(--yellow));border-radius:3px;z-index:0}
+.loop-card{position:relative;z-index:1;background:var(--card);border:1px solid var(--line);border-radius:24px;padding:24px;box-shadow:0 14px 40px rgba(27,20,52,.06)}
+.loop-card .n{width:36px;height:36px;border-radius:50%;background:var(--purple);color:#fff;display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:15px;margin-bottom:22px}
+.loop-card:nth-child(4) .n{background:var(--yellow);color:var(--yellow-ink)}
+.loop-card h3{font-size:21px;margin-bottom:8px}
+.loop-card p{margin:0;color:var(--muted);font-size:15px}
+
+/* safety */
+.safety-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
+.safety-card{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:26px}
+.safety-card .ico{width:44px;height:44px;border-radius:14px;background:var(--purple-tint);color:var(--purple);display:grid;place-items:center;margin-bottom:18px}
+.safety-card .ico svg{width:22px;height:22px}
+.safety-card b{display:block;font-family:var(--display);font-weight:600;font-size:20px;margin-bottom:8px}
+.safety-card p{margin:0;color:var(--muted);font-size:15px}
+.safety-links{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+
+/* cta band */
+.cta{position:relative;overflow:hidden;text-align:center}
+.cta .blob.a{left:-120px;top:-140px;right:auto;width:340px;height:340px}
+.cta .blob.b{right:-80px;bottom:-120px;width:300px;height:300px}
+.cta .wrap{position:relative;z-index:1}.cta h2{margin:0 auto}
+.cta .lead{margin-left:auto;margin-right:auto;text-align:center}
+.cta-actions{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;align-items:center;margin-top:36px;position:relative;z-index:1}
+.cta-sub{margin-top:22px;font-size:14px;color:var(--dark-muted)}
+.cta-sub a{color:var(--yellow);font-weight:700}
+
+/* footer */
+footer{background:var(--navy);color:#fff;border-top:1px solid var(--dark-line);padding:56px 0 36px}
+.footer-inner{display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:40px}
+.footer-brand p{color:var(--dark-muted);font-size:14px;max-width:330px;margin:14px 0 0}
+.footer-col h4{font-size:12px;text-transform:uppercase;letter-spacing:.08em;margin:0 0 12px;color:var(--yellow)}
+.footer-col a{display:block;color:var(--dark-muted);font-size:14px;margin:9px 0}
+.footer-col a:hover{color:#fff}
+.footer-bottom{margin-top:40px;padding-top:22px;border-top:1px solid var(--dark-line);display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;color:var(--dark-muted);font-size:13px}
 html[data-lang="zh"] [data-lang="en"],html[data-lang="en"] [data-lang="zh"]{display:none!important}
-@media (max-width:980px){nav{display:none}.header-cta{display:none}.bar{gap:14px}.lang-menu{margin-left:auto}.hero{grid-template-columns:minmax(0,1fr);padding-top:72px}.hero>*{min-width:0}.agent-stage{min-height:470px}.feature-grid,.human-panel{grid-template-columns:1fr}.games-grid{grid-template-columns:repeat(2,1fr)}.footer-inner{grid-template-columns:1.4fr 1fr 1fr}.footer-col:last-child{grid-column:2/4}.safety-grid{grid-template-columns:1fr 1fr}}
-@media (max-width:640px){.bar{padding:13px 17px}.hero,.section{padding-left:17px;padding-right:17px}.hero{padding-top:54px;padding-bottom:58px;gap:32px}.hero h1{font-size:clamp(38px,12.5vw,50px);line-height:1.06;letter-spacing:-.03em;margin:18px 0 18px}.hero-copy{font-size:16px}.agent-stage{min-height:auto}.shots{gap:8px;padding:16px 0}.shot{border-radius:16px}.shot.main{border-radius:18px;transform:translateY(-10px)}.shot.left{transform:rotate(-3deg) translateY(8px)}.shot.right{transform:rotate(3deg) translateY(8px)}.section{padding-top:70px;padding-bottom:70px}.feature-panel{padding:16px}.games-grid{grid-template-columns:1fr}.game-card{min-height:210px}.human-panel{padding:28px 20px}.safety-grid{grid-template-columns:1fr}.about-strip{flex-direction:column}.footer-inner{grid-template-columns:1fr 1fr}.footer-brand{grid-column:1/3}.footer-col:last-child{grid-column:auto}.footer-bottom{flex-direction:column}.lang-popover{right:0}}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+html[data-lang="zh"] h1,html[data-lang="zh"] h2,html[data-lang="zh"] h3,html[data-lang="zh"] .display,html[data-lang="zh"] blockquote{letter-spacing:0;text-wrap:normal;word-break:keep-all;overflow-wrap:anywhere}
+html[data-lang="zh"] h1{font-size:clamp(32px,4vw,52px);line-height:1.15}
+html[data-lang="zh"] h2{line-height:1.2}
+
+@media (max-width:1024px){
+  .loop-grid{grid-template-columns:repeat(2,1fr)}.loop-grid:before{display:none}
+  .agent-grid{grid-template-columns:1fr}
+}
+@media (max-width:900px){
+  nav,.header-cta{display:none}.bar{gap:14px}.lang-menu{margin-left:auto}
+  .hero .wrap{grid-template-columns:1fr;gap:56px}
+  .footer-inner{grid-template-columns:1fr 1fr}.footer-brand{grid-column:1/3}
+  .safety-grid{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .wrap{padding:0 16px}.bar{padding:12px 16px}
+  .section{padding:72px 0}.hero{padding:48px 0 72px}
+  h1{font-size:clamp(38px,11vw,48px)}
+  .stage{gap:12px}.stage figure{max-width:none}.stage figcaption span{font-size:12px;padding:8px 12px}
+  .stage .and-badge{width:52px;height:52px;font-size:13px}
+  .hero .blob.a{width:200px;height:200px;right:-90px;top:-100px}.hero .blob.b{width:160px;height:160px;right:-60px;bottom:-40px}.hero .blob.c{display:none}
+  .cta .blob.a{width:220px;height:220px;left:-130px;top:-130px}.cta .blob.b{width:220px;height:220px;right:-120px;bottom:-120px}
+  .chead{flex-direction:column;align-items:flex-start}
+  .numbered .item{grid-template-columns:52px 1fr}
+  .games-meta{grid-template-columns:1fr;gap:24px}
+  .loop-grid{grid-template-columns:1fr}
+  .stat-row{gap:24px}
+  .footer-inner{grid-template-columns:1fr}.footer-brand{grid-column:auto}
+  .footer-bottom{flex-direction:column}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.pill,.store,.game{transition:none}}
 </style>
 </head>
 <body>
 <header>
   <div class="bar">
-    <a class="logo" href="./" aria-label="MocMok home"><img class="logo-mark" src="assets/logo-192.png" alt="" width="30" height="30">MocMok</a>
-    <nav data-lang="en" aria-label="Primary"><a href="#agent-match">Agent Match</a><a href="#games">Games</a><a href="#safety">Safety</a><a href="#about">About</a></nav>
-    <nav data-lang="zh" aria-label="主导航"><a href="#agent-match">Agent Match</a><a href="#games">社交游戏</a><a href="#safety">安全</a><a href="#about">关于</a></nav>
-    <a class="header-cta" href="support.html" data-lang="en">Get MocMok</a>
-    <a class="header-cta" href="support.html" data-lang="zh">了解 MocMok</a>
+    <a class="logo" href="./" aria-label="MocMok home"><img class="logo-mark" src="assets/logo-192.png" alt="" width="32" height="32">MocMok</a>
+    <nav data-lang="en" aria-label="Primary"><a href="#agent">Mr.Moc</a><a href="#games">Games</a><a href="#loop">How it works</a><a href="#safety">Safety</a></nav>
+    <nav data-lang="zh" aria-label="主导航"><a href="#agent">Mr.Moc</a><a href="#games">社交游戏</a><a href="#loop">怎么玩</a><a href="#safety">安全</a></nav>
+    <a class="pill pill-yellow header-cta" href="https://apps.apple.com/us/app/id6810537134" data-lang="en">Get the app</a>
+    <a class="pill pill-yellow header-cta" href="https://apps.apple.com/us/app/id6810537134" data-lang="zh">下载 App</a>
     <div class="lang-menu">
       <button class="lang-trigger" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Choose language">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3.5 9h17M3.5 15h17M12 3c2.1 2.5 3.1 5.5 3.1 9S14.1 18.5 12 21M12 3C9.9 5.5 8.9 8.5 8.9 12s1 6.5 3.1 9"></path></svg>
@@ -129,96 +253,264 @@ html[data-lang="zh"] [data-lang="en"],html[data-lang="en"] [data-lang="zh"]{disp
     </div>
   </div>
 </header>
+
 <main>
-  <section class="hero">
-    <div>
-      <div class="eyebrow" data-lang="en"><span class="eyebrow-dot"></span> AI-native social discovery · 18+</div>
-      <div class="eyebrow" data-lang="zh"><span class="eyebrow-dot"></span> AI 原生社交发现平台 · 仅限 18+</div>
+  <!-- HERO -->
+  <section class="hero dark">
+    <div class="blob a"></div><div class="blob b"></div><div class="blob c"></div>
+    <div class="wrap">
+      <div>
+        <div class="eyebrow" data-lang="en"><span class="eyebrow-dot"></span> Now on the App Store · iOS</div>
+        <div class="eyebrow" data-lang="zh"><span class="eyebrow-dot"></span> 现已登陆 App Store · iOS</div>
+        <div data-lang="en">
+          <h1><span class="y">Meet People Through Play.</span><br>Find People with AI.</h1>
+          <p class="hero-copy">MocMok is a social app with two ways to meet people: join live social games that help strangers connect naturally, or tell Mr.Moc, our AI agent, exactly who you want to meet.</p>
+        </div>
+        <div data-lang="zh">
+          <h1><span class="y">一起玩，认识新朋友。</span><br>AI 帮你找到对的人。</h1>
+          <p class="hero-copy">MocMok 提供两种认识新朋友的方式：加入实时社交游戏，让陌生人自然地熟络起来；或者直接告诉 AI 助手 Mr.Moc，你想认识什么样的人。</p>
+        </div>
+        <div class="hero-actions">
+          <a class="store" href="https://apps.apple.com/us/app/id6810537134" aria-label="Download MocMok on the App Store">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
+            <span><small data-lang="en">Download on the</small><small data-lang="zh">前往</small><b>App Store</b></span>
+          </a>
+          <a class="pill pill-ghost" href="#loop" data-lang="en">See how it works</a>
+          <a class="pill pill-ghost" href="#loop" data-lang="zh">看看怎么玩</a>
+        </div>
+        <p class="hero-note" data-lang="en">Free to play · Adults 18+ · Android is next</p>
+        <p class="hero-note" data-lang="zh">免费游玩 · 仅限 18+ 成年人 · Android 版本开发中</p>
+        <div class="two-ways">
+          <span class="pill pill-yellow" data-lang="en">Social games</span><span class="pill pill-yellow" data-lang="zh">社交游戏</span>
+          <span class="and">AND</span>
+          <span class="pill pill-purple" data-lang="en">AI agent match</span><span class="pill pill-purple" data-lang="zh">AI 助手匹配</span>
+        </div>
+      </div>
+      <div class="stage" aria-label="MocMok app preview">
+        <figure>
+          <img src="assets/phone-arena.png" alt="MocMok Game Arena with Draw & Guess, Who is AI, Mind Match and daily solo games" width="680" height="1488" loading="eager" decoding="async">
+          <figcaption><span data-lang="en">Meet through play</span><span data-lang="zh">在游戏里认识</span></figcaption>
+        </figure>
+        <div class="and-badge">AND</div>
+        <figure>
+          <img src="assets/phone-agent.png" alt="Mr.Moc asks who you are looking for and takes a request in your own words" width="680" height="1488" loading="eager" decoding="async">
+          <figcaption><span data-lang="en">Or tell AI who you want to meet</span><span data-lang="zh">或者告诉 AI 你想认识谁</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="section" id="why">
+    <div class="wrap">
+      <p class="kicker" data-lang="en">The problem</p><p class="kicker" data-lang="zh">我们想解决的问题</p>
       <div data-lang="en">
-        <h1>Meet <span class="gradient">differently.</span></h1>
-        <p class="hero-copy">MocMok is an AI-native social platform that helps you discover the right people through intelligent Agents, shared interests and play.</p>
-        <div class="hero-actions"><a class="btn btn-primary" href="#agent-match">Discover Agent Match</a><a class="btn btn-secondary" href="#games">Explore social games</a></div>
-        <div class="hero-note">Built for adults 18+. AI assists discovery; real connections remain human.</div>
+        <h2>Finding people is easy. Finding the right person is not.</h2>
+        <p class="lead">Most social apps ask you to browse profiles and hope a good conversation follows.</p>
       </div>
       <div data-lang="zh">
-        <h1>换一种方式，<span class="gradient">认识对的人。</span></h1>
-        <p class="hero-copy">MocMok 是一个 AI 原生社交平台，通过智能 Agent、共同兴趣与互动游戏，帮助你更自然地发现可能适合认识的人。</p>
-        <div class="hero-actions"><a class="btn btn-primary" href="#agent-match">了解 Agent Match</a><a class="btn btn-secondary" href="#games">探索社交游戏</a></div>
-        <div class="hero-note">仅面向年满 18 周岁的成年人。AI 负责辅助发现，真实关系始终发生在人与人之间。</div>
+        <h2>找到人很容易，找到对的人很难。</h2>
+        <p class="lead">大多数社交 App 让你刷资料卡，然后指望一段好对话会自己发生。</p>
       </div>
-    </div>
-    <div class="agent-stage" aria-label="Agent Match preview">
-      <div class="orb one"></div><div class="orb two"></div>
-      <div class="shots">
-        <figure class="shot left"><img src="assets/agent-match-1.png" alt="Mr.Moc asks who you are looking for — dating, sports buddy or gaming teammate" width="526" height="1110" loading="eager" decoding="async"></figure>
-        <figure class="shot main"><img src="assets/agent-match-3.jpg" alt="Mr.Moc found your best match with an agent analysis" width="476" height="1024" loading="eager" decoding="async"></figure>
-        <figure class="shot right"><img src="assets/agent-match-2.png" alt="Chat with Mr.Moc describing the kind of person you want to meet" width="542" height="1126" loading="eager" decoding="async"></figure>
+      <div class="numbered">
+        <div class="item"><div class="n">01</div><div><h3 data-lang="en">Profiles are low-signal</h3><h3 data-lang="zh">资料卡信息量太低</h3><p data-lang="en">A profile says little about whether two people will click in a real conversation.</p><p data-lang="zh">一张资料卡几乎说明不了两个人聊起来会不会投缘。</p></div></div>
+        <div class="item"><div class="n">02</div><div><h3 data-lang="en">Filters flatten intent</h3><h3 data-lang="zh">筛选条件压扁了真实需求</h3><p data-lang="en">Interests, activities and personal preferences are hard to express through fixed filters.</p><p data-lang="zh">兴趣、想做的事和个人偏好，很难用固定的筛选项表达出来。</p></div></div>
+        <div class="item"><div class="n">03</div><div><h3 data-lang="en">Matches create a cold start</h3><h3 data-lang="zh">匹配之后是冷场</h3><p data-lang="en">A match still leaves two people staring at an empty chat box.</p><p data-lang="zh">匹配成功后，两个人面对的仍然是一个空白的聊天框。</p></div></div>
       </div>
+      <p class="closing" data-lang="en">MocMok starts with what you want to do and who you want to meet.</p>
+      <p class="closing" data-lang="zh">MocMok 从「你想做什么、想认识谁」开始。</p>
     </div>
   </section>
 
-  <section class="section agent-section" id="agent-match">
-    <div class="section-inner">
-      <div class="section-kicker">Agent Match</div>
-      <div data-lang="en"><h2>Tell your Agent who you're looking for.</h2><p class="section-lead">Describe it naturally. MocMok can use the preferences and matching conditions you choose to provide — such as interests, social intent, location and search radius — to help surface potentially relevant people.</p></div>
-      <div data-lang="zh"><h2>告诉 Agent，你真正想认识什么样的人。</h2><p class="section-lead">你可以直接用自然语言表达需求。MocMok 会结合你主动提供的兴趣、社交意图、位置与搜索范围等条件，帮助发现可能相关的人。</p></div>
-      <div class="feature-grid">
-        <div class="feature-panel"><div class="prompt-box"><div><div class="prompt-label" data-lang="en">You can say it naturally</div><div class="prompt-label" data-lang="zh">像聊天一样表达需求</div><div class="prompt-text" data-lang="en">“Someone into hiking, coffee and startup life — around the Bay Area.”</div><div class="prompt-text" data-lang="zh">“想认识一个在湾区，喜欢徒步、咖啡，也对创业感兴趣的人。”</div></div><div class="prompt-chips"><span class="prompt-chip">Intent</span><span class="prompt-chip">Interests</span><span class="prompt-chip">Distance</span><span class="prompt-chip">Context</span></div></div></div>
-        <div class="feature-panel steps">
-          <div class="step"><span class="step-num">01</span><div><strong data-lang="en">Express your intent</strong><strong data-lang="zh">表达真实需求</strong><p data-lang="en">Tell the Agent what kind of connection or activity you are looking for.</p><p data-lang="zh">告诉 Agent 你想找怎样的人、一起做什么。</p></div></div>
-          <div class="step"><span class="step-num">02</span><div><strong data-lang="en">Add your boundaries</strong><strong data-lang="zh">加入你的匹配条件</strong><p data-lang="en">Set location, search distance and other preferences that matter to you.</p><p data-lang="zh">设置位置、搜索距离和你在意的其他偏好。</p></div></div>
-          <div class="step"><span class="step-num">03</span><div><strong data-lang="en">Discover real people</strong><strong data-lang="zh">发现真人用户</strong><p data-lang="en">MocMok helps surface potential matches; you decide who to connect with.</p><p data-lang="zh">MocMok 帮助发现潜在匹配，最终由你决定和谁建立连接。</p></div></div>
+  <!-- MR.MOC -->
+  <section class="section agent" id="agent">
+    <div class="wrap">
+      <p class="kicker" data-lang="en">AI agent match</p><p class="kicker" data-lang="zh">AI 助手匹配</p>
+      <div data-lang="en">
+        <h2>Mr.Moc turns a specific request into one clear match.</h2>
+        <p class="lead">Describe the person or activity you have in mind. MocMok returns one best match, a reason it fits, and an icebreaker.</p>
+      </div>
+      <div data-lang="zh">
+        <h2>Mr.Moc 把一句具体的需求，变成一个明确的匹配。</h2>
+        <p class="lead">描述你想认识的人或想一起做的事。MocMok 只返回一个最合适的人，附上匹配理由和一句开场白。</p>
+      </div>
+      <div class="agent-grid">
+        <div>
+          <div class="quote-card">
+            <p class="kicker" data-lang="en">Example request</p><p class="kicker" data-lang="zh">举个例子</p>
+            <blockquote data-lang="en">“Someone who plays tennis, likes trying new restaurants, and enjoys a thoughtful conversation.”</blockquote>
+            <blockquote data-lang="zh">“想找一个打网球、喜欢探店、也聊得来的人。”</blockquote>
+          </div>
+          <div class="steps">
+            <div class="step"><div class="n">01</div><div><b data-lang="en">Describe intent</b><b data-lang="zh">说出你的需求</b><p data-lang="en">Use natural language, not a stack of filters.</p><p data-lang="zh">用自然语言，而不是一堆筛选项。</p></div></div>
+            <div class="step"><div class="n">02</div><div><b data-lang="en">Get one match</b><b data-lang="zh">得到一个匹配</b><p data-lang="en">Mr.Moc returns a single recommendation, not an endless feed.</p><p data-lang="zh">Mr.Moc 只给一个推荐，而不是刷不完的列表。</p></div></div>
+            <div class="step"><div class="n">03</div><div><b data-lang="en">See why it fits</b><b data-lang="zh">知道为什么合适</b><p data-lang="en">A reason and an icebreaker make the next step clear.</p><p data-lang="zh">匹配理由加一句开场白，下一步该做什么一目了然。</p></div></div>
+          </div>
+          <p class="live-line" data-lang="en">Natural-language matching is live on iOS. Android is next.</p>
+          <p class="live-line" data-lang="zh">自然语言匹配已在 iOS 上线，Android 版本开发中。</p>
+        </div>
+        <div class="phone">
+          <img src="assets/shot-match.png" alt="Mr.Moc found your best match: a profile card with an agent analysis explaining why it fits, shared interests and an icebreaker" width="739" height="1600" loading="lazy" decoding="async">
+          <span class="status-tag" data-lang="en">One match · a reason · an icebreaker</span><span class="status-tag" data-lang="zh">一个匹配 · 一个理由 · 一句开场白</span>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="games">
-    <div class="section-inner">
-      <div class="section-kicker" data-lang="en">Social games</div><div class="section-kicker" data-lang="zh">社交游戏</div>
-      <div data-lang="en"><h2>Skip the awkward small talk.</h2><p class="section-lead">Games create a reason to interact. MocMok uses playful, lightweight experiences to make meeting someone new feel more spontaneous and less forced.</p></div>
-      <div data-lang="zh"><h2>先一起玩，再慢慢认识。</h2><p class="section-lead">游戏给陌生人一个自然互动的理由。MocMok 用轻量、有参与感的多人玩法，让第一次交流不必从尴尬寒暄开始。</p></div>
-      <div class="games-grid">
-        <div class="game-card"><span class="game-icon">AI</span><h3>Who is AI</h3><p data-lang="en">Spot the AI hiding among human players.</p><p data-lang="zh">在人类玩家中找出隐藏的 AI。</p></div>
-        <div class="game-card"><span class="game-icon">?</span><h3>Quiz Battle</h3><p data-lang="en">Fast head-to-head trivia with a social edge.</p><p data-lang="zh">快节奏对战问答，让竞争变成破冰。</p></div>
-        <div class="game-card"><span class="game-icon">✎</span><h3>Draw &amp; Guess</h3><p data-lang="en">Draw, guess and react together in real time.</p><p data-lang="zh">实时画、猜、互动，一起制造话题。</p></div>
-        <div class="game-card"><span class="game-icon">◇</span><h3>Vibe Check</h3><p data-lang="en">A playful card game built for group chemistry.</p><p data-lang="zh">为群体互动与氛围感设计的卡牌玩法。</p></div>
+  <!-- GAMES -->
+  <section class="section dark" id="games">
+    <div class="wrap">
+      <p class="kicker" data-lang="en">Social games</p><p class="kicker" data-lang="zh">社交游戏</p>
+      <div data-lang="en">
+        <h2>Play gives a new match an easier first move.</h2>
+        <p class="lead">Shared games help people interact before the first direct message. Friends, chat and replay keep the connection going.</p>
       </div>
-
-      <div class="human-panel">
-        <div data-lang="en"><h3>AI starts the connection. Humans make it real.</h3><p>AI can help understand intent, preferences and context. The people you meet, the conversations you have and the relationships you build remain human.</p></div>
-        <div data-lang="zh"><h3>AI 帮你开启连接，真正的关系属于人与人。</h3><p>AI 可以帮助理解意图、偏好与语境，但你认识的人、发生的对话以及最终建立的关系，始终是真实的人际连接。</p></div>
-        <div class="human-points">
-          <div class="human-point"><strong data-lang="en">Assist, not replace</strong><strong data-lang="zh">辅助，而不是替代</strong><span data-lang="en">Agent Match is designed to support discovery, not replace real social interaction.</span><span data-lang="zh">Agent Match 的目标是帮助发现真人，而不是替代真实社交。</span></div>
-          <div class="human-point"><strong data-lang="en">You stay in control</strong><strong data-lang="zh">由你决定</strong><span data-lang="en">Recommendations are suggestions. You decide whether and how to connect.</span><span data-lang="zh">推荐只是建议，是否建立联系以及如何互动始终由你决定。</span></div>
+      <div data-lang="zh">
+        <h2>先一起玩，第一步就不尴尬。</h2>
+        <p class="lead">在发出第一条私信之前，先在游戏里互动。好友、聊天和再来一局，让这段关系继续下去。</p>
+      </div>
+      <div class="games-meta">
+        <div class="stat-row">
+          <div class="stat"><div class="num">8</div><div class="lbl" data-lang="en">games live</div><div class="lbl" data-lang="zh">款游戏已上线</div></div>
+          <div class="stat-split">
+            <div>5<span data-lang="en">multiplayer</span><span data-lang="zh">多人对局</span></div>
+            <div>3<span data-lang="en">daily solo</span><span data-lang="zh">每日单人</span></div>
+          </div>
         </div>
+        <div class="signal">
+          <b data-lang="en">Play creates signal</b><b data-lang="zh">游戏本身就是信号</b>
+          <p data-lang="en">How people answer, guess and choose can add compatibility signal beyond a static profile.</p>
+          <p data-lang="zh">一个人怎么回答、怎么猜、怎么选，比静态资料卡更能说明你们合不合拍。</p>
+        </div>
+      </div>
+      <div class="carousel">
+        <div class="chead">
+          <p data-lang="en">Real game screens. Scroll to see all eight.</p><p data-lang="zh">真实游戏画面，左右滑动看全部八款。</p>
+          <div class="cbtns"><button class="cbtn" type="button" data-dir="-1" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button><button class="cbtn" type="button" data-dir="1" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button></div>
+        </div>
+        <div class="track" id="game-track">
+        <article class="gitem y">
+          <div class="phone"><img src="assets/game-whoisai.png" alt="Who is AI round 3: five anonymous seats debating who is the bot, 24 seconds on the clock" width="585" height="1266" loading="lazy" decoding="async"></div>
+          <div class="gcap"><span class="tag" data-lang="en">Deduction · 5 players</span><span class="tag" data-lang="zh">推理 · 5 人</span><h3>Who is AI</h3><p data-lang="en">Five people in one group chat. One of them is an AI. Chat it out and find the bot.</p><p data-lang="zh">五个人在一个群聊里，其中一个是 AI。聊出来，把它找出来。</p></div>
+        </article>
+        <article class="gitem p">
+          <div class="phone"><img src="assets/game-mindmatch.png" alt="Mind Match reveal: Jordan chose My guitar, Maya and Priya read his mind" width="585" height="1266" loading="lazy" decoding="async"></div>
+          <div class="gcap"><span class="tag" data-lang="en">Mind · 5 players</span><span class="tag" data-lang="zh">读心 · 5 人</span><h3>Mind Match</h3><p data-lang="en">Guess what your friends would answer. Match minds, build streaks.</p><p data-lang="zh">猜朋友会怎么回答。猜中彼此，攒读心连击。</p></div>
+        </article>
+        <article class="gitem p">
+          <div class="phone"><img src="assets/game-draw.png" alt="Draw and Guess: Maya is drawing a cat while five players guess in the chat" width="585" height="1266" loading="lazy" decoding="async"></div>
+          <div class="gcap"><span class="tag" data-lang="en">Draw · rooms</span><span class="tag" data-lang="zh">画画 · 房间</span><h3>Draw &amp; Guess</h3><p data-lang="en">Sketch, guess and score in real time with friends or strangers.</p><p data-lang="zh">实时画、实时猜，和朋友或陌生人一起拿分。</p></div>
+        </article>
+        <article class="gitem y">
+          <div class="phone"><img src="assets/game-quiz.png" alt="Quiz Battle question 3 of 5: Alex 340 versus Jordan 360 with 7 seconds left" width="585" height="1266" loading="lazy" decoding="async"></div>
+          <div class="gcap"><span class="tag" data-lang="en">PvP · trivia</span><span class="tag" data-lang="zh">对战 · 问答</span><h3>Quiz Battle</h3><p data-lang="en">Five questions, ten seconds each, double points on the final one.</p><p data-lang="zh">五道题，每题十秒，最后一题双倍分。</p></div>
+        </article>
+        <article class="gitem p">
+          <div class="phone"><img src="assets/game-vibecheck.png" alt="VibeCheck table: your turn, Jordan on his last card, Leo frozen" width="585" height="1266" loading="lazy" decoding="async"></div>
+          <div class="gcap"><span class="tag" data-lang="en">Cards · 4 players</span><span class="tag" data-lang="zh">卡牌 · 4 人</span><h3>VibeCheck: Overdrive</h3><p data-lang="en">A four-player card race with social twists: freeze, tax, blind sync.</p><p data-lang="zh">四人卡牌竞速，带冰冻、加税、盲同步等社交小心机。</p></div>
+        </article>
+        <article class="gitem y">
+          <div class="phone"><img src="assets/game-fastfood.png" alt="Fast Food Dash level 2: a drive-thru order and a tower of food tiles" width="585" height="1266" loading="lazy" decoding="async"></div>
+          <div class="gcap"><span class="tag" data-lang="en">Daily · solo</span><span class="tag" data-lang="zh">每日 · 单人</span><h3>Fast Food Dash</h3><p data-lang="en">An all-American drive-thru tile sprint. One run a day, ranked against friends.</p><p data-lang="zh">美式快餐得来速消消乐，每天一局，和好友比排名。</p></div>
+        </article>
+        <article class="gitem p">
+          <div class="phone"><img src="assets/game-roastle.png" alt="Roastle board with three guesses made and the keyboard open" width="585" height="1266" loading="lazy" decoding="async"></div>
+          <div class="gcap"><span class="tag" data-lang="en">Daily · word</span><span class="tag" data-lang="zh">每日 · 猜词</span><h3>Roastle</h3><p data-lang="en">One North American meme word a day, same for everyone. Crack it in six tries.</p><p data-lang="zh">每天一个北美梗词，所有人同一题，六次机会猜出来。</p></div>
+        </article>
+        <article class="gitem y">
+          <div class="phone"><img src="assets/game-parallel.png" alt="Parallel Lives scenario card The 2 A.M. Offer with two choices and four life stats" width="585" height="1266" loading="lazy" decoding="async"></div>
+          <div class="gcap"><span class="tag" data-lang="en">Daily · story</span><span class="tag" data-lang="zh">每日 · 剧情</span><h3>Parallel Lives</h3><p data-lang="en">One scenario a day. Your choices build a match report with another player.</p><p data-lang="zh">每天一个情景，你的选择会生成一份和另一位玩家的匹配报告。</p></div>
+        </article>
+        </div>
+      </div>
+      <div class="loop-tags"><span data-lang="en">Friends</span><span data-lang="zh">好友</span><span data-lang="en">1:1 and group chat</span><span data-lang="zh">私聊与群聊</span><span data-lang="en">Invites</span><span data-lang="zh">邀请好友</span><span data-lang="en">Replay</span><span data-lang="zh">再来一局</span></div>
+    </div>
+  </section>
+
+  <!-- LOOP -->
+  <section class="section" id="loop">
+    <div class="wrap">
+      <p class="kicker" data-lang="en">How it works</p><p class="kicker" data-lang="zh">怎么玩</p>
+      <div data-lang="en">
+        <h2>Play. Match. Connect. Play again.</h2>
+        <p class="lead">Games and Mr.Moc feed each other. The more you play, the more MocMok knows about who you click with.</p>
+      </div>
+      <div data-lang="zh">
+        <h2>玩，匹配，认识，再来一局。</h2>
+        <p class="lead">游戏和 Mr.Moc 互相成就。玩得越多，MocMok 越知道你和谁合拍。</p>
+      </div>
+      <div class="loop-grid">
+        <div class="loop-card"><div class="n">1</div><h3 data-lang="en">Jump into a game</h3><h3 data-lang="zh">先进一局游戏</h3><p data-lang="en">Join a live table or a daily solo run. No profile browsing required.</p><p data-lang="zh">加入一桌实时对局，或者玩一局每日单人游戏。不用先刷资料卡。</p></div>
+        <div class="loop-card"><div class="n">2</div><h3 data-lang="en">Tell Mr.Moc who you want to meet</h3><h3 data-lang="zh">告诉 Mr.Moc 你想认识谁</h3><p data-lang="en">A date, or a buddy for anything: tennis, dinner, hiking, board games. Say it in your own words.</p><p data-lang="zh">约会对象，或者任何搭子：网球、吃饭、徒步、桌游。用你自己的话说。</p></div>
+        <div class="loop-card"><div class="n">3</div><h3 data-lang="en">Get one match, with a reason</h3><h3 data-lang="zh">得到一个匹配和理由</h3><p data-lang="en">Mr.Moc picks one person, explains why, and hands you an icebreaker.</p><p data-lang="zh">Mr.Moc 只挑一个人，说明为什么，再给你一句开场白。</p></div>
+        <div class="loop-card"><div class="n">4</div><h3 data-lang="en">Add a friend and play together</h3><h3 data-lang="zh">加好友，一起玩</h3><p data-lang="en">Chat 1:1 or in groups, invite them to a room, and replay whenever you like.</p><p data-lang="zh">私聊或群聊，邀请对方进房间，随时再来一局。</p></div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="safety">
-    <div class="section-inner">
-      <div class="section-kicker" data-lang="en">Safety by design</div><div class="section-kicker" data-lang="zh">安全机制</div>
-      <div data-lang="en"><h2>Built for adults. Designed with boundaries.</h2><p class="section-lead">MocMok is for adults aged 18 or older. Reporting, blocking and content moderation are part of the product experience.</p></div>
-      <div data-lang="zh"><h2>只面向成年人，也为边界感而设计。</h2><p class="section-lead">MocMok 仅向年满 18 周岁的成年人开放，并提供举报、拉黑与内容审核等安全工具。</p></div>
+  <!-- SAFETY -->
+  <section class="section" id="safety" style="padding-top:0">
+    <div class="wrap">
+      <p class="kicker" data-lang="en">Safety by design</p><p class="kicker" data-lang="zh">安全机制</p>
+      <div data-lang="en">
+        <h2>Built for adults. Designed with boundaries.</h2>
+        <p class="lead">MocMok is for adults aged 18 or older. Reporting, blocking and content moderation are part of the product, not an afterthought.</p>
+      </div>
+      <div data-lang="zh">
+        <h2>只面向成年人，也为边界感而设计。</h2>
+        <p class="lead">MocMok 仅向年满 18 周岁的成年人开放。举报、拉黑与内容审核是产品的一部分，而不是事后补丁。</p>
+      </div>
       <div class="safety-grid">
-        <div class="safety-card"><b data-lang="en">18+ only</b><b data-lang="zh">仅限 18+</b><p data-lang="en">Users must be at least 18 years old to register or use MocMok.</p><p data-lang="zh">用户必须年满 18 周岁才能注册或使用 MocMok。</p></div>
-        <div class="safety-card"><b data-lang="en">Report &amp; block</b><b data-lang="zh">举报与拉黑</b><p data-lang="en">Users can report concerning behavior and block people they do not want to interact with.</p><p data-lang="zh">用户可以举报不当行为，并拉黑不希望继续互动的人。</p></div>
-        <div class="safety-card"><b data-lang="en">Moderation</b><b data-lang="zh">内容审核</b><p data-lang="en">Automated and human review tools help enforce MocMok's rules and community standards.</p><p data-lang="zh">自动化与人工审核机制共同帮助执行平台规则和社区规范。</p></div>
+        <div class="safety-card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v5c0 5-3.5 8.5-8 9-4.5-.5-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></div><b data-lang="en">18+ only</b><b data-lang="zh">仅限 18+</b><p data-lang="en">You must be at least 18 years old to register or use MocMok.</p><p data-lang="zh">必须年满 18 周岁才能注册或使用 MocMok。</p></div>
+        <div class="safety-card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V5a1 1 0 011-1h11l-1.5 4L16 12H5"/></svg></div><b data-lang="en">Report &amp; block</b><b data-lang="zh">举报与拉黑</b><p data-lang="en">Report concerning behavior from any game or chat, and block people you do not want to hear from again.</p><p data-lang="zh">在任何游戏或聊天里都能举报不当行为，并拉黑不想再联系的人。</p></div>
+        <div class="safety-card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z"/></svg></div><b data-lang="en">Moderation</b><b data-lang="zh">内容审核</b><p data-lang="en">Automated and human review help enforce our rules and community standards.</p><p data-lang="zh">自动化与人工审核共同执行平台规则和社区规范。</p></div>
       </div>
-      <div class="about-strip" id="about"><div><strong data-lang="en">MocMok is an AI-native social discovery platform.</strong><strong data-lang="zh">MocMok 是一个 AI 原生社交发现平台。</strong><br><span data-lang="en">Agent Match, real-time interaction and social games — built around human connection.</span><span data-lang="zh">Agent Match、实时互动与社交游戏，都围绕真实的人际连接展开。</span></div><div><a href="support.html" style="color:var(--brand);font-weight:750" data-lang="en">Questions? Visit Help &amp; Support →</a><a href="support.html" style="color:var(--brand);font-weight:750" data-lang="zh">有问题？前往帮助与支持 →</a></div></div>
+      <div class="safety-links">
+        <a class="pill pill-light" href="guidelines.html" data-lang="en">Community Guidelines</a><a class="pill pill-light" href="guidelines.html" data-lang="zh">社区规范</a>
+        <a class="pill pill-light" href="child-safety.html" data-lang="en">Child Safety Standards</a><a class="pill pill-light" href="child-safety.html" data-lang="zh">儿童安全标准</a>
+        <a class="pill pill-light" href="support.html" data-lang="en">Help &amp; Support</a><a class="pill pill-light" href="support.html" data-lang="zh">帮助与支持</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section dark cta" id="download">
+    <div class="blob a"></div><div class="blob b"></div>
+    <div class="wrap">
+      <div data-lang="en">
+        <h2>Live on the App Store.</h2>
+        <p class="lead">Free to play. Eight games, friends and chat stay free. Android is next.</p>
+      </div>
+      <div data-lang="zh">
+        <h2>现已登陆 App Store。</h2>
+        <p class="lead">免费游玩。八款游戏、好友与聊天全部免费。Android 版本开发中。</p>
+      </div>
+      <div class="cta-actions">
+        <a class="store" href="https://apps.apple.com/us/app/id6810537134" aria-label="Download MocMok on the App Store">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
+          <span><small data-lang="en">Download on the</small><small data-lang="zh">前往</small><b>App Store</b></span>
+        </a>
+        <span class="pill pill-ghost" style="cursor:default" data-lang="en">Android · coming soon</span>
+        <span class="pill pill-ghost" style="cursor:default" data-lang="zh">Android · 即将推出</span>
+      </div>
+      <p class="cta-sub" data-lang="en">Questions? <a href="support.html">Visit Help &amp; Support</a> or email <a href="mailto:support@mocmok.com">support@mocmok.com</a>.</p>
+      <p class="cta-sub" data-lang="zh">有问题？<a href="support.html">前往帮助与支持</a>，或发邮件到 <a href="mailto:support@mocmok.com">support@mocmok.com</a>。</p>
     </div>
   </section>
 </main>
+
 <footer>
-  <div class="footer-inner">
-    <div class="footer-brand"><a class="logo" href="./"><img class="logo-mark" src="assets/logo-192.png" alt="" width="30" height="30">MocMok</a><p data-lang="en">AI-native social discovery for adults 18+. Designed to help people discover, play and connect.</p><p data-lang="zh">面向 18+ 成年人的 AI 原生社交发现平台，让发现、互动与连接更加自然。</p></div>
-    <div class="footer-col"><h4 data-lang="en">Product</h4><h4 data-lang="zh">产品</h4><a href="#agent-match">Agent Match</a><a href="#games" data-lang="en">Social Games</a><a href="#games" data-lang="zh">社交游戏</a></div>
-    <div class="footer-col"><h4 data-lang="en">Company</h4><h4 data-lang="zh">关于</h4><a href="#about" data-lang="en">About</a><a href="#about" data-lang="zh">关于 MocMok</a><a href="support.html" data-lang="en">Help &amp; Support</a><a href="support.html" data-lang="zh">帮助与支持</a></div>
-    <div class="footer-col"><h4 data-lang="en">Legal</h4><h4 data-lang="zh">法律</h4><a href="privacy.html" data-lang="en">Privacy Policy</a><a href="privacy.html" data-lang="zh">隐私政策</a><a href="terms.html" data-lang="en">Terms of Service</a><a href="terms.html" data-lang="zh">服务协议</a><a href="guidelines.html" data-lang="en">Community Guidelines</a><a href="guidelines.html" data-lang="zh">社区规范</a><a href="child-safety.html" data-lang="en">Child Safety</a><a href="child-safety.html" data-lang="zh">儿童安全</a></div>
+  <div class="wrap">
+    <div class="footer-inner">
+      <div class="footer-brand"><a class="logo" href="./"><img class="logo-mark" src="assets/logo-192.png" alt="" width="32" height="32">MocMok</a><p data-lang="en">Meet people through play. Find people with AI. A social app for adults 18+, built in the Bay Area by MocMok, Inc.</p><p data-lang="zh">一起玩，认识新朋友；让 AI 帮你找到对的人。面向 18+ 成年人的社交 App，由 MocMok, Inc. 在湾区打造。</p></div>
+      <div class="footer-col"><h4 data-lang="en">Product</h4><h4 data-lang="zh">产品</h4><a href="#agent">Mr.Moc</a><a href="#games" data-lang="en">Social Games</a><a href="#games" data-lang="zh">社交游戏</a><a href="#loop" data-lang="en">How it works</a><a href="#loop" data-lang="zh">怎么玩</a><a href="https://apps.apple.com/us/app/id6810537134" data-lang="en">Download for iOS</a><a href="https://apps.apple.com/us/app/id6810537134" data-lang="zh">下载 iOS 版</a></div>
+      <div class="footer-col"><h4 data-lang="en">Company</h4><h4 data-lang="zh">关于</h4><a href="#safety" data-lang="en">Safety</a><a href="#safety" data-lang="zh">安全</a><a href="support.html" data-lang="en">Help &amp; Support</a><a href="support.html" data-lang="zh">帮助与支持</a><a href="mailto:support@mocmok.com">support@mocmok.com</a></div>
+      <div class="footer-col"><h4 data-lang="en">Legal</h4><h4 data-lang="zh">法律</h4><a href="privacy.html" data-lang="en">Privacy Policy</a><a href="privacy.html" data-lang="zh">隐私政策</a><a href="terms.html" data-lang="en">Terms of Service</a><a href="terms.html" data-lang="zh">服务协议</a><a href="guidelines.html" data-lang="en">Community Guidelines</a><a href="guidelines.html" data-lang="zh">社区规范</a><a href="child-safety.html" data-lang="en">Child Safety</a><a href="child-safety.html" data-lang="zh">儿童安全</a></div>
+    </div>
+    <div class="footer-bottom"><span data-lang="en">© 2026 MocMok, Inc. All rights reserved.</span><span data-lang="zh">© 2026 MocMok, Inc. 保留所有权利。</span><span data-lang="en">Apple and the App Store are trademarks of Apple Inc.</span><span data-lang="zh">Apple 与 App Store 是 Apple Inc. 的商标。</span></div>
   </div>
-  <div class="footer-bottom"><span data-lang="en">© 2026 MocMok. All rights reserved.</span><span data-lang="zh">© 2026 MocMok. 保留所有权利。</span><a href="mailto:support@mocmok.com">support@mocmok.com</a></div>
 </footer>
+
 <script>
 (function(){
   var KEY='mocmok-lang';
@@ -242,6 +534,12 @@ html[data-lang="zh"] [data-lang="en"],html[data-lang="en"] [data-lang="zh"]{disp
   for(var i=0;i<options.length;i++)options[i].addEventListener('click',function(){apply(this.getAttribute('data-set-lang'))});
   document.addEventListener('click',closeMenu);document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu()});
   apply(lang);
+  var track=document.getElementById('game-track');
+  var btns=document.querySelectorAll('.cbtn');
+  for(var j=0;j<btns.length;j++)btns[j].addEventListener('click',function(){
+    if(!track)return;var item=track.firstElementChild;var step=item?item.getBoundingClientRect().width+22:300;
+    track.scrollBy({left:step*Number(this.getAttribute('data-dir')),behavior:'smooth'});
+  });
 })();
 </script>
 </body>
