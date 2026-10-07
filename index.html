@@ -163,6 +163,27 @@ h1 .y{color:var(--yellow)}
 .gcap h3{font-size:22px;margin:12px 0 6px}
 .gcap p{margin:0;color:var(--dark-muted);font-size:14px;line-height:1.5}
 
+/* parallel lives spotlight */
+.spot-card{margin-top:48px;position:relative;overflow:hidden;border-radius:34px;padding:52px 52px 0;background:linear-gradient(135deg,#231A45 0%,#3A2A7C 55%,#5B3FB8 100%);color:#fff;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:44px;align-items:end;box-shadow:0 30px 80px rgba(27,20,52,.25)}
+.spot-card:before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;background:var(--purple);opacity:.45;right:-160px;top:-220px}
+.spot-card:after{content:"";position:absolute;width:220px;height:220px;border-radius:50%;background:var(--yellow);opacity:.9;left:-110px;bottom:-120px}
+.spot-steps{position:relative;z-index:1;padding-bottom:52px}
+.spot-step{display:grid;grid-template-columns:52px 1fr;gap:14px;padding:18px 0;border-top:1px solid var(--dark-line)}
+.spot-step:first-child{border-top:0;padding-top:0}
+.spot-step .n{font-family:var(--display);font-weight:700;font-size:24px;color:var(--yellow);line-height:1.1}
+.spot-step b{display:block;font-family:var(--display);font-weight:600;font-size:21px;margin-bottom:5px}
+.spot-step p{margin:0;color:var(--dark-muted);font-size:15px;line-height:1.55}
+.spot-note{margin:26px 0 0;padding:14px 18px;border-radius:16px;background:rgba(255,255,255,.08);border:1px solid var(--dark-line);font-size:14px;color:#fff;font-weight:600}
+.spot-note span{color:var(--yellow)}
+.spot-phones{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:end;justify-items:center}
+.spot-phones .phone{width:min(230px,100%);margin:0;border-radius:40px;padding:9px;box-shadow:0 26px 60px rgba(0,0,0,.45),inset 0 0 0 2px #3a3450;border-bottom-left-radius:0;border-bottom-right-radius:0;padding-bottom:0}
+.spot-phones .phone img{border-radius:32px 32px 0 0;display:block;max-height:430px;object-fit:cover;object-position:top;width:100%}
+.spot-phones .phone:before{top:16px;height:24px;width:32%}
+.spot-phones figure{margin:0;width:100%;max-width:230px;position:relative}
+.spot-phones figure:first-child{transform:translateY(-26px)}
+.spot-badge{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%) rotate(-6deg);background:var(--yellow);color:var(--yellow-ink);border-radius:999px;padding:10px 16px;font-family:var(--display);font-weight:700;font-size:15px;white-space:nowrap;box-shadow:0 14px 34px rgba(0,0,0,.35);z-index:3}
+.spot-cap{position:absolute;left:0;right:0;bottom:-30px;text-align:center;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--dark-muted)}
+
 /* loop */
 .loop-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:52px;position:relative}
 .loop-grid:before{content:"";position:absolute;left:6%;right:6%;top:40px;height:3px;background:linear-gradient(90deg,var(--purple),var(--yellow));border-radius:3px;z-index:0}
@@ -206,6 +227,7 @@ html[data-lang="zh"] h2{line-height:1.2}
 
 @media (max-width:1024px){
   .loop-grid{grid-template-columns:repeat(2,1fr)}.loop-grid:before{display:none}
+  .spot-card{grid-template-columns:1fr;padding:40px 32px 0}.spot-steps{padding-bottom:36px}.spot-phones{max-width:520px;margin:0 auto}
   .agent-grid{grid-template-columns:1fr}
 }
 @media (max-width:900px){
@@ -225,6 +247,7 @@ html[data-lang="zh"] h2{line-height:1.2}
   .chead{flex-direction:column;align-items:flex-start}
   .numbered .item{grid-template-columns:52px 1fr}
   .games-meta{grid-template-columns:1fr;gap:24px}
+  .spot-card{padding:30px 20px 0;border-radius:26px}.spot-phones{gap:12px}.spot-phones figure:first-child{transform:translateY(-14px)}.spot-badge{font-size:13px;padding:8px 12px}
   .loop-grid{grid-template-columns:1fr}
   .stat-row{gap:24px}
   .footer-inner{grid-template-columns:1fr}.footer-brand{grid-column:auto}
@@ -237,8 +260,8 @@ html[data-lang="zh"] h2{line-height:1.2}
 <header>
   <div class="bar">
     <a class="logo" href="./" aria-label="MocMok home"><img class="logo-mark" src="assets/logo-192.png" alt="" width="32" height="32">MocMok</a>
-    <nav data-lang="en" aria-label="Primary"><a href="#agent">Mr.Moc</a><a href="#games">Games</a><a href="#loop">How it works</a><a href="#safety">Safety</a></nav>
-    <nav data-lang="zh" aria-label="主导航"><a href="#agent">Mr.Moc</a><a href="#games">社交游戏</a><a href="#loop">怎么玩</a><a href="#safety">安全</a></nav>
+    <nav data-lang="en" aria-label="Primary"><a href="#agent">Mr.Moc</a><a href="#games">Games</a><a href="#parallel">Parallel Lives</a><a href="#loop">How it works</a><a href="#safety">Safety</a></nav>
+    <nav data-lang="zh" aria-label="主导航"><a href="#agent">Mr.Moc</a><a href="#games">社交游戏</a><a href="#parallel">Parallel Lives</a><a href="#loop">怎么玩</a><a href="#safety">安全</a></nav>
     <a class="pill pill-yellow header-cta" href="https://apps.apple.com/us/app/id6810537134" data-lang="en">Get the app</a>
     <a class="pill pill-yellow header-cta" href="https://apps.apple.com/us/app/id6810537134" data-lang="zh">下载 App</a>
     <div class="lang-menu">
@@ -424,6 +447,35 @@ html[data-lang="zh"] h2{line-height:1.2}
         </div>
       </div>
       <div class="loop-tags"><span data-lang="en">Friends</span><span data-lang="zh">好友</span><span data-lang="en">1:1 and group chat</span><span data-lang="zh">私聊与群聊</span><span data-lang="en">Invites</span><span data-lang="zh">邀请好友</span><span data-lang="en">Replay</span><span data-lang="zh">再来一局</span></div>
+    </div>
+  </section>
+
+  <!-- PARALLEL LIVES SPOTLIGHT -->
+  <section class="section" id="parallel">
+    <div class="wrap">
+      <p class="kicker" data-lang="en">Featured · Parallel Lives</p><p class="kicker" data-lang="zh">特色玩法 · Parallel Lives</p>
+      <div data-lang="en">
+        <h2>Play a story. Meet the person who chose like you.</h2>
+        <p class="lead">One scenario a day. Every choice you make becomes signal. When the run ends, the agent compares your path with everyone else's and surfaces the one person you click with.</p>
+      </div>
+      <div data-lang="zh">
+        <h2>玩一段剧情，遇见和你选得一样的人。</h2>
+        <p class="lead">每天一个情景，你的每一次选择都是信号。一局结束，AI 把你的路径和所有玩家对比，只找出那一个和你合拍的人。</p>
+      </div>
+      <div class="spot-card">
+        <div class="spot-steps">
+          <div class="spot-step"><div class="n">01</div><div><b data-lang="en">One scenario a day</b><b data-lang="zh">每天一个情景</b><p data-lang="en">Twelve cards, two choices each. Career, love, money, friends. There are no right answers, only yours.</p><p data-lang="zh">十二张卡，每张两个选择。事业、感情、金钱、朋友。没有标准答案，只有你的答案。</p></div></div>
+          <div class="spot-step"><div class="n">02</div><div><b data-lang="en">Your choices become signal</b><b data-lang="zh">选择变成信号</b><p data-lang="en">Mind, Empathy, Energy and Capital shift with every decision. That is a real profile, not a form you filled in once.</p><p data-lang="zh">每个决定都会改变你的 Mind、Empathy、Energy、Capital 四项数值。这才是真实的你，而不是一张填过一次的表。</p></div></div>
+          <div class="spot-step"><div class="n">03</div><div><b data-lang="en">The agent finds who you click with</b><b data-lang="zh">AI 找到和你合拍的人</b><p data-lang="en">A compatibility score, the choice you both made, and an icebreaker written for the two of you. One tap to add them.</p><p data-lang="zh">一个契合度分数、你们共同的那个选择，以及专为你们俩写的开场白。一键加好友。</p></div></div>
+          <p class="spot-note" data-lang="en"><span>Same signal, bigger picture:</span> what you choose here also feeds Mr.Moc the next time you ask who to meet.</p>
+          <p class="spot-note" data-lang="zh"><span>同一份信号，走得更远：</span>你在这里的选择，下次问 Mr.Moc 想认识谁时也会用上。</p>
+        </div>
+        <div class="spot-phones">
+          <figure><div class="phone"><img src="assets/game-parallel.png" alt="Parallel Lives scenario card The 2 A.M. Offer with two choices and four life stats" width="585" height="1266" loading="lazy" decoding="async"></div><span class="spot-cap" data-lang="en">Day 5 · your choice</span><span class="spot-cap" data-lang="zh">第 5 天 · 你的选择</span></figure>
+          <span class="spot-badge" data-lang="en">84% · you both took the leap</span><span class="spot-badge" data-lang="zh">84% · 你们都选了冒险</span>
+          <figure><div class="phone"><img src="assets/game-parallel-report.png" alt="Parallel Lives agent match report: Mia, 84% compatibility, the shared choice and an icebreaker, with an Add friend button" width="585" height="1266" loading="lazy" decoding="async"></div><span class="spot-cap" data-lang="en">Run complete · your match</span><span class="spot-cap" data-lang="zh">一局结束 · 你的匹配</span></figure>
+        </div>
+      </div>
     </div>
   </section>
 
